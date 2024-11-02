@@ -5,8 +5,15 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-class Player
-{
+class Player{
+    public:
+        Hand hand;
+
+        int score;
+
+        Player();
+
+        Player(Deck deck, int N)
 
 };
   

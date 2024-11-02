@@ -7,6 +7,8 @@ using namespace std;
 
 int main() {
 
+  cout << "Welcome to TigerGame!\nThe deck was shuffled and each player has drawn 6 cards."
+
   // 1. Create a deck of cards and shuffle it.
   // 2. Create two players, each one with 6 cards in their hand.
   // 3. Play five rounds. In each round:

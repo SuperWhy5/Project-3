@@ -5,9 +5,20 @@
 #include <string>
 #include <sstream>
 
-class Hand
-{
-  
+class Hand{
+    private: 
+        vector<Card> hand;
+
+    public: 
+        Hand();
+
+        Hand(Deck deck, int N);
+
+        std::string strHand();
+
+        Card dealCArd(int num);
+
+        int getHandSize();
 };
 
 #endif // HAND_H_

@@ -6,9 +6,19 @@
 #include <cstdlib>
 #include <ctime>
 
-class Deck
-{
-  
+class Deck{
+    private:
+        vector<Card> deck;
+
+    public:
+        Deck();
+
+        void shuffle();
+
+        Card drawCard();
+
+        int getDeckSize();
+
 };
   
 
