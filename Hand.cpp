@@ -11,7 +11,7 @@ Hand::Hand(Deck& deck, int N) {
 
 std::string Hand::strHand() {
     std::stringstream ss;
-    int pos = 0;
+    int pos = 1;
     
     for(Card& card : hand){
         ss << "[" << pos++ << "] " << card.strCard() <<" ";
@@ -22,7 +22,7 @@ std::string Hand::strHand() {
     
 Card Hand::dealCard(int num) {
     Card dealt = hand[num-1];
-    hand.erase(hand.begin());
+    hand.erase(hand.begin() - 1);
     return dealt; 
 
 }
