@@ -1,7 +1,7 @@
 #include "Hand.h"
 
 
-Hand::Hand() {}
+Hand::Hand() : hand() {}
 
 Hand::Hand(Deck& deck, int N) {
     for(int i = 1; i < N+1; i++){
@@ -23,7 +23,7 @@ std::string Hand::strHand() {
     
 Card Hand::dealCard(int num) {
     Card dealt = hand[num-1];
-    hand.erase(hand.begin() - num);
+    hand.erase(hand.begin());
     return dealt; 
 
 }

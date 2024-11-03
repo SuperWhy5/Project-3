@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 
-Deck::Deck(){
+Deck::Deck() {
     for (int i = 1; i < 16; i++){
         Card card(i,Card::purple);
         deck.push_back(card);

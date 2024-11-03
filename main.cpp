@@ -45,10 +45,17 @@ int main() {
     }
     //    - Print results for current round.
     cout << "Current Score: \n" <<"Human: " << human.score << "\nComputer: " << computer.score << "\n\n";
+    // 4. Print final game results.
+    if(i == 5){
+        cout << "FINAL SCORE: \n" <<"Human: " << human.score << "\nComputer: " << computer.score;
+      if(humanCard.getValue() > computerCard.getValue()){
+        cout << "\n\nYou have won!";
+      }
+      else{
+        cout << "\n\nComputer has won!";
+      }
+    }
   }
-  // 4. Print final game results.
-  cout << "FINAL SCORE: \n" <<"Human: " << human.score << "\nComputer: " << computer.score;
-
 
   return 0;
 }
