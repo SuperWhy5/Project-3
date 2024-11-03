@@ -33,7 +33,7 @@ Card Deck::drawCard() {
 
 int Deck::getDeckSize() {
 
-    return sizeof(deck);
+    return deck.size();
 }
 
 std::string Deck::revealDeck(){

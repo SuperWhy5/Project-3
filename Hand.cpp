@@ -14,8 +14,7 @@ std::string Hand::strHand() {
     int pos = 0;
     
     for(Card& card : hand){
-        pos++;
-        ss << "[" << pos << "] " << card.strCard() <<" ";
+        ss << "[" << pos++ << "] " << card.strCard() <<" ";
     }
 
     return ss.str();
@@ -29,5 +28,5 @@ Card Hand::dealCard(int num) {
 }
 
 int Hand::getHandSize() {
-    return sizeof(hand);
+    return hand.size();
 }
