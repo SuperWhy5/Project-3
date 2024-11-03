@@ -9,11 +9,12 @@ class Player{
     public:
         Hand hand;
 
-        int score;
+        int score = 0;
 
-        Player();
+        Player() {}
 
-        Player(Deck deck, int N)
+        Player(Deck& deck, int N) : hand(deck, N) {}
+    
 
 };
   

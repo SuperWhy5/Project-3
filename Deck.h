@@ -5,11 +5,9 @@
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
+#include "Card.h"
 
 class Deck{
-    private:
-        vector<Card> deck;
-
     public:
         Deck();
 
@@ -18,6 +16,10 @@ class Deck{
         Card drawCard();
 
         int getDeckSize();
+
+        std::string revealDeck();
+    private:
+        std::vector<Card> deck;
 
 };
   

@@ -4,14 +4,6 @@
 #include <string>
 
 class Card{
-    private: 
-    
-        int rank = 0;
-
-        Color: color = purple;
-        
-        int value = 0;
-    
     public: 
         enum Color {purple, orange, black};
 
@@ -19,14 +11,24 @@ class Card{
 
         Card(int rank, Color color);
 
-        std::string strCard()
+        std::string strCard();
 
         int getRank();
 
         Color getColor();
 
         int getValue();
+
+        friend std::ostream& operator<<(std::ostream& os, Color color);
+
+    private: 
+        int rank = 0;
+
+        Color color = purple;
+        
+        int value = 0;
+    
 };
   
 
-#endif // CARD_H_
+#endif

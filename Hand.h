@@ -4,19 +4,21 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include "Card.h"
+#include "Deck.h"
 
 class Hand{
     private: 
-        vector<Card> hand;
+        std::vector<Card> hand;
 
     public: 
         Hand();
 
-        Hand(Deck deck, int N);
+        Hand(Deck& deck, int N);
 
         std::string strHand();
 
-        Card dealCArd(int num);
+        Card dealCard(int num);
 
         int getHandSize();
 };
