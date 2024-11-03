@@ -1,7 +1,7 @@
 #include "Hand.h"
 
 
-Hand::Hand() : hand() {}
+Hand::Hand() = default {}
 
 Hand::Hand(Deck& deck, int N) {
     for(int i = 1; i < N+1; i++){

@@ -11,7 +11,7 @@ class Player{
 
         int score = 0;
 
-        Player() {}
+        Player() = default;
 
         Player(Deck& deck, int N) : hand(deck, N) {}
     
