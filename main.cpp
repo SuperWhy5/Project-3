@@ -12,11 +12,14 @@
 #include "Deck.h"
 #include "Hand.h"
 #include "Player.h"
+#include "Summary.h"
 #include <iostream>
 using namespace std;
 
 int main() {
 
+  vector<summaryCollect> Summary;
+  int sumCountRounds = 0;
   bool run = true;
   while(run){
     cout << "Settings - How many cards should each player draw from the deck (15 max): ";
@@ -26,8 +29,8 @@ int main() {
       cout << "Players cannot draw more than 15 cards each, try again: ";
       cin >> rounds;
     }
-
-    cout << "Welcome to TigerGame!\nThe deck was shuffled and each player has drawn " << rounds << "cards.\n\n";
+    sumCountRounds += rounds;
+    cout << "Welcome to TigerGame!\nThe deck was shuffled and each player has drawn " << rounds << " cards.\n\n";
 
     // 1. Create a deck of cards and shuffle it.
     Deck deckOfCards;
@@ -59,13 +62,21 @@ int main() {
       if(humanCard.getValue() > computerCard.getValue()){
         cout << "You win this round!\n\n";
         human.score += humanCard.getValue() + computerCard.getValue();
+        summaryCollect round(1,1,0,humanCard.getValue() + computerCard.getValue(),0);
+        Summary.push_back(round);
       }
       else if(humanCard.getValue() < computerCard.getValue()){
         cout << "The computer wins this round!\n\n";
         computer.score += humanCard.getValue() + computerCard.getValue();
+        summaryCollect round(1,0,1,0,humanCard.getValue() + computerCard.getValue());
+        Summary.push_back(round);
+
       }
       else{
         cout << "Tie!\n\n";
+        summaryCollect round(1,0,0,0,0);
+        Summary.push_back(round);
+
       }
       //    - Print results for current round.
       cout << "Current Score: \n" <<"Human: " << human.score << "\nComputer: " << computer.score << "\n\n";
@@ -80,6 +91,33 @@ int main() {
         }
       }
     }
+    string playAgain;
+    cout << "\n\nWould you like to play again (yes/no): ";
+    cin >> playAgain;
+    while(playAgain != "yes" && playAgain != "no"){
+      cout << "you can only eneter yes or no, try again: ";
+      cin >> playAgain;
+    }
+    if(playAgain == "no"){
+      cout << Summary[1].roundSummary();
+      int summaryRounds = 0;
+      for(summaryCollect& round : Summary){
+        summaryRounds++;
+        cout << "Round: " << summaryRounds << "\n\n" <<
+        "Computer points recieved: " << round.computer_points << "\n" <<
+        "Human points recieved: " << round.human_points << "\n\n";
+        if(summaryRounds == sumCountRounds){
+          cout << "\n\nTOTALS: \n\n" << "COMPUTER: " << round.human_total <<
+          "\n\nHUMAN: " <<round.computer_total;
+        }
+      }
+      run = false;
+    }
+    else{
+      cout << "\n\n";
+    }
   }
+
+  //Summary
   return 0;
 }
