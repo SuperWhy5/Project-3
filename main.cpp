@@ -45,7 +45,13 @@ int main() {
       //    - Have computer deal a card from their hand.
       Card computerCard = computer.hand.dealCard(1);
       cout << "The computer plays: " << computerCard.strCard() << endl;
-
+      if(computerCard.getColor() == computerCard.winner){
+        computer.score += 50;    
+        summaryCollect round(1,0,1,0,50);
+        Summary.push_back(round);
+        cout << "The computer wins this round!\n\n";
+        cout << "Current Score: \n" <<"Human: " << human.score << "\nComputer: " << computer.score << "\n\n";
+        continue;      }
       //    - Show human their hand of cards so that they can make a selection.
       cout << "Your hand: " << human.hand.strHand() << endl;
       cout << "Which card do you want to play? ";
@@ -57,8 +63,18 @@ int main() {
         cin >> choice;
       }
       Card humanCard = human.hand.dealCard(choice);
-      cout << "You played: " << humanCard.strCard() << endl;
+      cout << "\nYou played: " << humanCard.strCard() << endl;
       //    - Determine who won the round and update points accordingly.
+      
+      if(humanCard.getColor() == humanCard.winner){
+        human.score += 50;    
+        summaryCollect round(1,1,0,50,0);
+        Summary.push_back(round);
+        cout << "You win this round!\n\n";
+        cout << "Current Score: \n" <<"Human: " << human.score << "\nComputer: " << computer.score << "\n\n";
+        continue;
+        // break; or continue;
+      }
       if(humanCard.getValue() > computerCard.getValue()){
         cout << "You win this round!\n\n";
         human.score += humanCard.getValue() + computerCard.getValue();
