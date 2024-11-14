@@ -15,6 +15,9 @@ Card::Card(int rank, Color color){
     if(color == black){
         value = rank * 3;
     }
+    if(color == tiger){
+        value = rank;
+    }
 }
 
 std::string Card::strCard(){
@@ -40,6 +43,7 @@ std::ostream& operator<<(std::ostream& os, Card::Color color) {
         case Card::Color::purple: os << "purple"; break;
         case Card::Color::orange: os << "orange"; break;
         case Card::Color::black:  os << "black";  break;
+        case Card::Color::tiger:  os << "tiger";  break;
     }
     return os;
 }

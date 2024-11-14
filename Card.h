@@ -5,7 +5,7 @@
 
 class Card{
     public: 
-        enum Color {purple, orange, black};
+        enum Color {purple, orange, black, tiger};
 
         Card();
 
@@ -20,6 +20,8 @@ class Card{
         int getValue();
 
         friend std::ostream& operator<<(std::ostream& os, Color color);
+
+        Color winner = tiger;
 
     private: 
         int rank = 0;

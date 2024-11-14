@@ -16,6 +16,8 @@ Deck::Deck() : deck(){
         Card card(j,Card::black);
         deck.push_back(card);
     }
+    Card card(10,Card::tiger);
+    deck.push_back(card);
 
 
 }
